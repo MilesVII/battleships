@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Battleships</title>
+		<link rel="icon" type="image/png" href="/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<style type="text/css">
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				border: 0;
+				padding: 0;
+			}
+			
+			@font-face {
+				font-family: icons;
+				src: url(battleships.ttf);
+			}
+
+			.framebuffer {
+				text-align: center;
+				font-family: icons;
+				line-height: .98;
+				white-space: pre;
+				user-select: none;
+			}
+
+			.spacer {
+				margin: 2vw;
+			}
+
+			.spaceBelow {
+				margin-bottom: 1vw;
+			}
+
+			#statuslog {
+				font-family: Roboto, sans-serif;
+				font-size: 2.3vw;
+			}
+
+			#statuslog > div {
+				margin: .7vw;
+				padding: .5vw;
+				color: gray;
+				border-color: gray;
+				width: max-content;
+				cursor: default;
+
+				transition-property: opacity;
+				transition-duration: .7s;
+			}
+			
+			#statuslog > div:hover {
+				opacity: 100% !important;
+			}
+
+			#statuslog :first-child {
+				color: black;
+				border-style: none;
+				background-color: indianred;
+			}
+
+			.btn {
+				font-family: Roboto, sans-serif;
+				font-size: 2.3vw;
+				opacity: 80%;
+				transition-property: opacity;
+				transition-duration: .7s;
+				cursor: pointer;
+			}
+			.btn:hover {
+				opacity: 100%;
+			}
+
+			.bordered {
+				border-width: .42vw;
+				border-style: solid;
+				border-radius: 1.24vw;
+			}
+
+			#privateStatus {
+				font-family: Roboto, sans-serif;
+				font-size: 2.3vw;
+			}
+
+			#resign {
+				margin: 2.7vw;
+				padding: .42vw;
+				color: red;
+				background-color: black;
+				border-color: red;
+				width: max-content;
+			}
+
+			#invite {
+				margin: 2.7vw;
+				padding: .5vw;
+				color: black;
+				border-color: cornflowerblue;
+			}
+
+			#makePublic {
+				padding: .42vw;
+			}
+
+			.hidden {
+				visibility: hidden;
+			}
+
+			.virtual {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" class="framebuffer"></div>
+		<div class="spacer">
+			<div class="spaceBelow hidden" id="privateStatus">The session will be private. <a class="btn bordered" id="makePublic" onclick="changePublicity(true)">Make public</a>.</div>
+			<div class="spacer">
+				<span class="btn bordered hidden" id="resign" onclick="resign()">Resign</span>
+				<span class="btn bordered hidden" id="invite" onclick="changePublicity(false)">Copy invite link</span>
+			</div>
+			<div id="statuslog"></div>
+		</div>
+		<!--<textarea class="virtual" id="copier"></textarea>-->
+
+		<script type="text/javascript" src="js/io.js"></script>
+		<script type="text/javascript" src="js/utils.js"></script>
+		<script type="text/javascript" src="js/vector.js"></script>
+		<script type="text/javascript" src="js/framebuffer.js"></script>
+		<script type="text/javascript" src="js/constants.js"></script>
+		<script type="text/javascript" src="js/ui.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
